@@ -5,17 +5,20 @@
 </template>
 <script lang="ts">
 import { defineComponent, ref } from 'vue';
+import { IUseTodo, useTodo } from '../../hooks/index';
 
 export default defineComponent({
     name: 'TodoInput',
     setup() {
         const todoValue = ref<string>('');
 
+        const { setTodo }: IUseTodo = useTodo();
         const setTodoValue = (): void => {
-            console.log('123', todoValue.value)
             if (todoValue.value.trim().length) {
+                setTodo(todoValue.value);
                 todoValue.value = '';
             }
+
         }
 
         return {
