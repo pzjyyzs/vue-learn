@@ -1,7 +1,7 @@
 <template>
   <div class="wrapper">
     <todo-input></todo-input>
-    <todo-list :todolist="todoList"></todo-list>
+    <todo-list :todoList="todoList"></todo-list>
   </div>
 </template>
 

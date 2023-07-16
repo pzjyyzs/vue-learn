@@ -6,7 +6,7 @@
     </div>
 </template>
 <script lang="ts">
-import { PropType, defineComponent } from 'vue';
+import { PropType, defineComponent, watch } from 'vue';
 import TodoItem from './Item.vue'
 import { ITodo } from '@/types';
 import { IUseTodo, useTodo } from '@/hooks';
@@ -28,7 +28,8 @@ export default defineComponent({
         return {
             removeTodo,
             setStatus,
-            setDoing
+            setDoing,
+
         }
     }
 })
