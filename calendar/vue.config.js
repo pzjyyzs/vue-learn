@@ -5,7 +5,7 @@ module.exports = defineConfig({
   devServer: {
     proxy: {
       "/api": {
-        target: 'https://www.mxnzp.com/',
+        target: 'http://v.juhe.cn/',
         changeOrigin: true,
         ws: true,
         secure: false,

@@ -22,8 +22,3 @@ pnpm run lint
 
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/config/).
-
-
-APP_ID:kuxtfzjlkirbqprv
-APP_SECRET:MzBaRDIvN0RISXVObTZva0ZOSlQ2QT09
-https://www.mxnzp.com/doc/detail?id=1
