@@ -1,7 +1,5 @@
-const APP_ID = 'kuxtfzjlkirbqprv';
-const APP_SECRET = 'MzBaRDIvN0RISXVObTZva0ZOSlQ2QT09';
+const APP_KEY = 'eada4d8abf7f426c74eb21aa3092d385';
 
 export {
-    APP_ID,
-    APP_SECRET,
+    APP_KEY
 }
