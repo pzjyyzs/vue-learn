@@ -6,7 +6,7 @@ function getDayData(date) {
             url: '/api/calendar/day',
             data: { date },
             success(data) {
-                resolve(data);
+                reslove(data);
             },
             error(err) {
                 reject(err);
@@ -23,7 +23,7 @@ function getMonthData(yearMonth) {
                 'year-month': yearMonth
             },
             success(data) {
-                resolve(data);
+                reslove(data);
             },
             error(err) {
                 reject(err);
@@ -38,7 +38,7 @@ function getYearData(year) {
             url: '/api/calendar/year',
             data: { year },
             success(data) {
-                resolve(data);
+                reslove(data);
             },
             error(err) {
                 reject(err);

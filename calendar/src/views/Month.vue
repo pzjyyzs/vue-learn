@@ -5,8 +5,16 @@
 </template>
 
 <script>
+import getData from '@/services';
+import { onMounted } from 'vue';
+
 export default {
-    name: 'MonthPage'
+    name: 'MonthPage',
+    setup() {
+        onMounted(() => {
+            getData('month', '2020-7')
+        })
+    }
 }
 </script>
 
