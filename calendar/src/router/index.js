@@ -3,21 +3,21 @@ import { createRouter, createWebHistory } from 'vue-router'
 const routes = [
   {
     path: '/day',
-    name: 'DayPage',
+    name: 'day',
     component: () => import(
       '../views/Day.vue'
     )
   },
   {
     path: '/month',
-    name: 'MonthPage',
+    name: 'month',
     component: () => import(
       '../views/Month.vue'
     )
   },
   {
     path: '/year',
-    name: 'YearPage',
+    name: 'year',
     component: () => import(
       '../views/Year.vue'
     )
