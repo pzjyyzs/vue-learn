@@ -2,11 +2,13 @@
   <div id="app">
     <my-header>{{ headerTitle }}</my-header>
     <router-view />
+    <tab />
   </div>
 </template>
 
 <script>
 import MyHeader from '@/components/header';
+import Tab from '@/components/tab';
 import { useStore } from 'vuex';
 import { computed } from 'vue';
 import { useRouter } from 'vue-router';
@@ -14,11 +16,12 @@ import { useRouter } from 'vue-router';
 export default {
   name: 'App',
   components: {
-    MyHeader
+    MyHeader,
+    Tab
   },
   setup() {
     const store = useStore(),
-      state = store.stat,
+      state = store.state,
       router = useRouter();
     router.push('/');
     return computed(() => state).value
