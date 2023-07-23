@@ -14,5 +14,44 @@ export default {
                 state.headerTitle = '当天信息';
                 break;
         }
+    },
+    setMaxLength(state, routerName) {
+        switch (routerName) {
+            case 'day':
+                state.maxlenght = 8;
+                break;
+            case 'month':
+                state.maxlenght = 6;
+                break;
+            case 'year':
+                state.maxlenght = 4;
+                break;
+            default:
+                state.maxlenght = 8;
+                break;
+        }
+    },
+    setPlaceholder(state, routerName) {
+        const date = new Date();
+        let year = date.getFullYear(),
+            month = date.getMonth() + 1,
+            day = date.getDate();
+
+        month = month < 10 ? '0' + month : month;
+        day = day < 10 ? '0' + day : day;
+        switch (routerName) {
+            case 'day':
+                state.placeholder = `格式：${year}${month}${day} （${year}年${month}月${day}日）`;
+                break;
+            case 'month':
+                state.placeholder = `格式：${year}${month}${day} （${year}年${month}月）`;
+                break;
+            case 'year':
+                state.placeholder = `格式：${year}${month}${day} （${year}年）`;
+                break;
+            default:
+                state.placeholder = `格式：${year}${month}${day} （${year}年${month}月${day}日）`;
+                break;
+        }
     }
 }
