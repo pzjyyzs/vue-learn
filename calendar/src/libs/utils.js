@@ -15,6 +15,48 @@ function getIconDate(type) {
     }
 }
 
+function formatChsData(date, type) {
+    const _arr = date.splite('-');
+
+    switch (type) {
+        case 'day':
+            return `${_arr[0]}年${_arr[1]}月${_arr[2]}日`;
+        case 'month':
+            return `${_arr[0]}年${_arr[1]}月`;
+        case 'year':
+            return `${_arr[0]}年`;
+        default:
+            return `${_arr[0]}年${_arr[1]}月${_arr[2]}日`;
+
+    }
+}
+function mapForChsData(data, key) {
+    return data.map(item => {
+        item[key] = formatChsData(item[key]);
+        return item;
+    });
+}
+
+function getNowDate(field) {
+    const date = new Date();
+    let year = date.getFullYear(),
+        month = date.getMonth() + 1,
+        day = date.getDate();
+
+    switch (field) {
+        case 'day':
+            return `${year}-${month}-${day}`;
+        case 'month':
+            return `${year}-${month}`;
+        case 'year':
+            return `${year}`;
+        default:
+            return `${year}-${month}-${day}`;
+    }
+}
 export {
-    getIconDate
+    getIconDate,
+    mapForChsData,
+    formatChsData,
+    getNowDate
 }
