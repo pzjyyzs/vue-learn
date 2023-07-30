@@ -2,7 +2,11 @@
   <div id="app">
     <my-header>{{ headerTitle }}</my-header>
     <search-input :placeholder="placeholder" :maxlength="maxlenght" />
-    <router-view />
+    <router-view v-slot="{ Component }">
+      <keep-alive>
+        <component :is="Component" />
+      </keep-alive>
+    </router-view>
     <tab />
   </div>
 </template>

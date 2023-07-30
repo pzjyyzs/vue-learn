@@ -13,6 +13,7 @@ import getData from '@/services';
 import { computed, onMounted, watch } from 'vue';
 import { getNowDate } from '@/libs/utils';
 import CardList from '@/components/monthpage/list.vue';
+import ErrorTip from '@/components/errorTip.vue';
 
 export default {
     name: 'MonthPage',
