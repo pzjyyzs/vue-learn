@@ -5,7 +5,10 @@
     </div>
 </template>
 <script>
-import { ref } from 'vue';
+import { computed, ref } from 'vue';
+import { fromatUserData } from '@/libs/utils';
+import { useStore } from 'vuex';
+import getData from '@/services'
 
 export default {
     name: 'SearchInput',
@@ -14,11 +17,26 @@ export default {
         maxlength: Number
     },
     setup() {
-        const inputValue = ref('');
-        const searchData = (e) => {
+        const inputValue = ref(''),
+            store = useStore(),
+            state = store.state;
 
+        const searchData = (e) => {
+            inputValue.value = e.target.value;
+            const field = computed(() => state.field).value;
+
+            if (inputValue.value.length === props.maxLength) {
+                getData(store, field, fromatUserData(inputValue.value));
+            } else if (inputValue.value.length === 0) {
+                getData(store, field, getNowDate(field));
+            }
         }
 
+        watch(() => {
+            return state.field;
+        }, () => {
+            input.value = '';
+        })
         return {
             inputValue,
             searchData

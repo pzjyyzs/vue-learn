@@ -72,5 +72,8 @@ export default {
             default:
                 break;
         }
+    },
+    setField(state, field) {
+        state.field = field;
     }
 }
