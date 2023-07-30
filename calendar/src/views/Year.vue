@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-        Year page
+        <error-tip></error-tip>
     </div>
 </template>
 
@@ -10,6 +10,9 @@ import { onMounted } from 'vue';
 
 export default {
     name: 'YearPage',
+    components: {
+        ErrorTip
+    },
     setup() {
         onMounted(() => {
             getData('year', '2019')

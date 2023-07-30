@@ -11,7 +11,7 @@
 
 <script>
 import getData from '@/services';
-import { computed, onMounted } from 'vue';
+import { computed, onMounted, watch } from 'vue';
 import DayCard from '@/components/daypage/daycard.vue';
 import DayList from '@/components/daypage/list/index.vue';
 import ErrorTip from '@/components/errorTip.vue';
@@ -30,6 +30,12 @@ export default {
             state = store.state;
         onMounted(() => {
             getData(store, 'day', getNowDate('day'));
+        })
+
+        watch(() => {
+            return state.dayData;
+        }, (value) => {
+            store.commit('setErrorCode', 0);
         })
 
         return {
