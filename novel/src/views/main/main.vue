@@ -8,7 +8,7 @@
 <script>
 import Left from './left.vue';
 export default {
-    name: 'main',
+    name: 'Main',
     components: {
         Left
     }

@@ -10,7 +10,10 @@
 </template>
 <script>
 export default {
-    name: 'Header'
+    name: 'Header',
+    setup() {
+
+    }
 }
 </script>
 <style lang="scss" scoped>

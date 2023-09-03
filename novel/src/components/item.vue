@@ -1,5 +1,5 @@
 <template>
-    <div class="cell">
+    <!--  <div class="cell">
         <a class="user_avatar pull-left" href="">
             <img src="https://avatars.githubusercontent.com/u/19722693?v=4&s=120" alt="">
         </a>
@@ -15,28 +15,31 @@
         <span class="last_time pull-right">
             <span class="last_active_time">3个月前</span>
         </span>
-    </div>
-    <div class="cell">
+    </div> -->
+    <div class="cell" v-for="item in data ">
         <a class="user_avatar pull-left" href="">
-            <img src="https://avatars.githubusercontent.com/u/19722693?v=4&s=120" alt="">
+            <img :src="item.author.avatar_url" alt="">
         </a>
         <span class="reply_count pull-left">
-            <span class="count_of_replies"> 0 </span>
+            <span class="count_of_replies">{{ item.reply_count }}</span>
             <span class="count_seperator">/</span>
-            <span class="count_of_visits"> 0 </span>
+            <span class="count_of_visits"> {{ item.visit_count }} </span>
         </span>
         <div class="top_title_wrapper">
-            <span class="topiclist-tab">分享</span>
-            <a class="topic_title">文丑-ChatGPT客户端 支持消息打字机式回复啦，响应时间毫秒级</a>
+            <span class="topiclist-tab" :class="{ 'put_top': item.top }" v-if="item.tab">{{ item.tabTitle }}</span>
+            <a class="topic_title">{{ item.title }}</a>
         </div>
         <span class="last_time pull-right">
-            <span class="last_active_time">3个月前</span>
+            <span class="last_active_time">{{ item.lastTimeTitle }}</span>
         </span>
     </div>
 </template>
 <script>
 export default {
     name: 'Item',
+    props: {
+        data: Array
+    }
 }
 </script>
 <style lang="scss" scoped>
@@ -57,7 +60,7 @@ export default {
     }
 
     .reply_count {
-        width: 70px;
+        width: 90px;
         display: inline-block;
         text-align: center;
     }
@@ -70,6 +73,15 @@ export default {
             color: #999;
             padding: 2px 4px;
             border-radius: 3px;
+            font-size: 12px;
+
+        }
+
+        .put_top {
+            background-color: #80bd01;
+            padding: 2px 4px;
+            border-radius: 3px;
+            color: #fff;
             font-size: 12px;
         }
 
