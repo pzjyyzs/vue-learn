@@ -1,7 +1,7 @@
 <template>
     <div class="header">
         <a class="tab current-tab">全部</a>
-        <a href="" class=" tab">精华</a>
+        <a href="javascript:void(0);" class="tab" @click="changeIndexTab('good')">精华</a>
         <a href="" class="tab">分享</a>
         <a href="" class="tab">问答</a>
         <a href="" class="tab">招聘</a>
@@ -9,10 +9,18 @@
     </div>
 </template>
 <script>
+import useTab from '../../store/useTab';
+
 export default {
     name: 'Header',
     setup() {
 
+    },
+    methods: {
+        changeIndexTab(str) {
+            const tab = useTab();
+            tab.changeTab(str);
+        }
     }
 }
 </script>
