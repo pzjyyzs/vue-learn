@@ -37,6 +37,26 @@ function timeFormart(time) {
     return str;
 }
 
+function makeIndexData(res) {
+    let tab = {
+        share: '分享',
+        ask: '问答',
+        job: '招聘',
+        dev: '测试'
+    }
+    return res.data.map(item => {
+        if (item.top) {
+            item.tabTitle = '顶置';
+        } else {
+            item.tabTitle = tab[item.tab];
+        }
+
+        item.lastTimeTitle = timeFormart(item.last_reply_at);
+        return item
+    });
+}
+
 export {
-    timeFormart
+    timeFormart,
+    makeIndexData
 }

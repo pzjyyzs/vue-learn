@@ -1,20 +1,35 @@
 <template>
     <div class="header">
-        <a class="tab current-tab">全部</a>
-        <a href="javascript:void(0);" class="tab" @click="changeIndexTab('good')">精华</a>
-        <a href="" class="tab">分享</a>
-        <a href="" class="tab">问答</a>
-        <a href="" class="tab">招聘</a>
-        <a href="" class="tab">客户端测试</a>
+        <a class="tab" :class="{ 'current-tab': currentTab == '' }" @click="changeIndexTab('')">全部</a>
+        <a href="javascript:void(0);" class="tab" :class="{ 'current-tab': currentTab == 'good' }"
+            @click="changeIndexTab('good')">精华</a>
+        <a href="javascript:void(0);" class="tab" :class="{ 'current-tab': currentTab == 'share' }"
+            @click="changeIndexTab('share')">分享</a>
+        <a href="javascript:void(0);" class="tab" :class="{ 'current-tab': currentTab == 'ask' }"
+            @click="changeIndexTab('ask')">问答</a>
+        <a href="javascript:void(0);" class="tab" :class="{ 'current-tab': currentTab == 'job' }"
+            @click="changeIndexTab('job')">招聘</a>
+        <a href="javascript:void(0);" class="tab" :class="{ 'current-tab': currentTab == 'dev' }"
+            @click="changeIndexTab('dev')">客户端测试</a>
     </div>
 </template>
 <script>
+import { ref } from 'vue';
 import useTab from '../../store/useTab';
+import { storeToRefs } from 'pinia';
 
 export default {
     name: 'Header',
     setup() {
-
+        const tabStore = useTab();
+        const { tab } = storeToRefs(tabStore);
+        let tabValue = ref(tab.value);
+        tabStore.$subscribe((mutation, state) => {
+            tabValue.value = state.tab;
+        })
+        return {
+            currentTab: tabValue
+        }
     },
     methods: {
         changeIndexTab(str) {
