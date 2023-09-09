@@ -8,6 +8,9 @@ const useTab = defineStore("tab", {
     actions: {
         changeTab(tab) {
             this.tab = tab;
+        },
+        changeIndex(index) {
+            this.currentIndex = index;
         }
     }
 })

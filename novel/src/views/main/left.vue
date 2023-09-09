@@ -6,12 +6,14 @@
                 <Item :data="data"></Item>
             </div>
         </div>
+        <Pageing :currentIndex="currentIndex" @page-change="pageChange"></Pageing>
     </div>
 </template>
 <script>
 import { onMounted, ref } from 'vue';
 import Header from './header.vue';
 import Item from '@/components/item.vue';
+import Pageing from '@/components/paging.vue';
 import { getTopics } from '../../services/request';
 import useTab from '../../store/useTab';
 import { makeIndexData } from '../../libs/utils';
@@ -21,7 +23,8 @@ export default {
     name: 'Left',
     components: {
         Header,
-        Item
+        Item,
+        Pageing
     },
     setup() {
         let data = ref([]);
@@ -43,7 +46,14 @@ export default {
             })
         })
         return {
-            data
+            data,
+            currentIndex
+        }
+    },
+    methods: {
+        pageChange(index) {
+            const tab = useTab();
+            tab.changeIndex(index);
         }
     }
 }
