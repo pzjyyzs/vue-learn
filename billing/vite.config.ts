@@ -11,5 +11,10 @@ export default defineConfig({
       transformOn: true,
       mergeProps: true
     })
-  ]
+  ],
+  css: {
+    postcss: {
+      plugins: [require('tailwindcss'), require('autoprefixer')]
+    }
+  }
 })
