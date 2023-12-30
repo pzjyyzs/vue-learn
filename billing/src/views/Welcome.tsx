@@ -10,8 +10,11 @@ export const Welcome = defineComponent({
                 <h1 class='text-logocolor text-4xl mt-2'>记账</h1>
             </header>
             <main class='flex flex-col grow'>
-                <RouterView />
+                <RouterView name='main'/>
             </main>
+            <footer class='flex'>
+                <RouterView name='footer' />
+            </footer>
         </div>
     }
 })
