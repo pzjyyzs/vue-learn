@@ -7,7 +7,9 @@ export const Welcome = defineComponent({
         type Y = { Component: VNode, route: RouteLocationNormalizedLoaded }
         return () => <div class='flex h-[calc(100vh-83px)] flex-col mb-[83px] bg-[linear-gradient(152deg,_#00bfd8_42%,_#0083f5)]'>
             <header class='shrink-0 flex flex-col justify-center items-center pt-16 mx-4'>
-                <img src={logo} alt="" />
+                <svg class='w-[64px] h-[69px]'>
+                    <use xlinkHref='#logo'></use>
+                </svg>
                 <h1 class='text-logocolor text-4xl mt-2'>记账</h1>
             </header>
             <main class='flex flex-col grow relative'>

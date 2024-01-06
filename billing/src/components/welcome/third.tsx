@@ -1,6 +1,4 @@
 import { defineComponent } from 'vue';
-import chart from '../../assets/icon/chart-bar.svg';
-import { RouterLink } from 'vue-router';
 import { WelcomeLayout } from './WelcomeLayout';
 
 export const Third = defineComponent({
@@ -8,7 +6,7 @@ export const Third = defineComponent({
         return () => (
             <WelcomeLayout>
                 {{
-                    icon: () => <img src={chart}></img>,
+                    icon: () => <svg><use xlinkHref='#chart-bar'></use></svg>,
                     title: () => <><div class='text-2xl mt-2'>会挣钱</div><div class='text-2xl mt-2'>还要会省钱</div></>,
                 }}
             </WelcomeLayout>

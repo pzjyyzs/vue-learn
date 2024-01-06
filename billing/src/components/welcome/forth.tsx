@@ -1,6 +1,4 @@
 import { defineComponent } from 'vue';
-import { RouterLink } from 'vue-router';
-import cloud from '../../assets/icon/cloud.svg';
 import { WelcomeLayout } from './WelcomeLayout';
 
 export const Forth = defineComponent({
@@ -8,7 +6,7 @@ export const Forth = defineComponent({
         return () => (
             <WelcomeLayout>
                 {{
-                    icon: () => <img src={cloud}></img>,
+                    icon: () => <svg><use xlinkHref='#cloud'></use></svg>,
                     title: () => <><div class='text-2xl mt-2'>会挣钱</div><div class='text-2xl mt-2'>还要会省钱</div></>,
                 }}
             </WelcomeLayout>
