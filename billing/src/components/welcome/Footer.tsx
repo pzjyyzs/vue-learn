@@ -7,7 +7,6 @@ export const Footer = defineComponent({
         const route = useRoute()
         const path = router.currentRoute.value.path;
         let nextPage = '/welcome/2', skipClass = 'text-3xl', skipName = '下一页';
-        route
         watch(() => route.path, async newPath => {
             if (newPath === '/welcome/1') {
                 nextPage = '/welcome/2'

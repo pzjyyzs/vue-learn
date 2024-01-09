@@ -1,13 +1,31 @@
 import { Transition, VNode, defineComponent, ref, watchEffect } from 'vue';
-import { RouteLocationNormalizedLoaded, RouterView } from 'vue-router';
+import { RouteLocationNormalizedLoaded, RouterView, useRoute, useRouter } from 'vue-router';
 import { useSwipe } from '../hooks/useSwipe';
+import { throttle } from '../shared/throttle';
 
 export const Welcome = defineComponent({
     setup: (props, context) => {
-        const main = ref<HTMLElement|null>(null)
-        const { direction } = useSwipe(main)
+        const router = useRouter()
+        const route = useRoute()
+        const main = ref<HTMLDivElement>()
+        const { swiping, direction } = useSwipe(main, {
+            beforeStart: e => e.preventDefault()
+        })
+        const pushMap: Record<string, string> = {
+            'welcome1': '/welcome/2',
+            'welcome2': '/welcome/3',
+            'welcome3': '/welcome/4',
+            'welcome4': '/start'
+        }
+        const push = throttle(() => {
+            const name = (route.name || 'welcome1').toString();
+            router.push(pushMap[name])
+        }, 500)
         watchEffect(() => {
-            
+            console.log('123 a', route.name)
+            if (swiping.value && direction.value === 'left') {
+                push()
+            }
         })
         type Y = { Component: VNode, route: RouteLocationNormalizedLoaded }
         return () => <div class='flex h-[calc(100vh-83px)] flex-col mb-[83px] bg-[linear-gradient(152deg,_#00bfd8_42%,_#0083f5)]'>

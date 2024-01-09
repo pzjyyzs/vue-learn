@@ -1,4 +1,4 @@
-import { defineComponent } from 'vue';
+import { defineComponent, ref, watchEffect } from 'vue';
 import { WelcomeLayout } from './WelcomeLayout';
 
 export const First = defineComponent({
@@ -8,7 +8,9 @@ export const First = defineComponent({
             title: () => <><div class='text-2xl mt-2'>会挣钱</div><div class='text-2xl mt-2'>还要会省钱</div></>
         }
         return () => (
-           <WelcomeLayout v-slots={slots}></WelcomeLayout>
+            <div class='flex grow'>
+                <WelcomeLayout v-slots={slots} ></WelcomeLayout>
+            </div>
         )
     }
 })
