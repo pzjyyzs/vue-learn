@@ -1,9 +1,10 @@
 import { PropType, defineComponent } from 'vue';
 
+export type IconName = 'add' | 'chart-bar' | 'clock' | 'cloud' | 'logo' | 'package' | 'menu' | 'money'
 export const Icon = defineComponent({
     props: {
         name: {
-            type: String as PropType<'add' | 'chart-bar' | 'clock' | 'cloud' | 'logo' | 'package'>
+            type: String as PropType<IconName>
         }
     },
     setup: (props, context) => {
