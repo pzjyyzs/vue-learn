@@ -1,5 +1,6 @@
 import { defineComponent } from 'vue';
 import { Button } from '../shared/Button';
+import { FloatButton } from '../shared/FloatButton';
 
 export const StartPage = defineComponent({
     setup: (props, context) => {
@@ -9,6 +10,7 @@ export const StartPage = defineComponent({
         return () => (
             <div class='py-4 px-4'>
                 <Button class='w-full' onClick={onClick}>Start</Button>
+                <FloatButton></FloatButton>
             </div>
         );
     }
